@@ -1,0 +1,7 @@
+sudo: required
+services:
+  - docker
+before_install:
+  - docker build -t rishanth/docker-react -f Dockerfile.dev .
+script:
+  - docker run -e CI=true rishanth/docker-react npm run test
